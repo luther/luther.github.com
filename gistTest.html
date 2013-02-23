@@ -18,11 +18,11 @@
 				if (r.readyState == 4) {
 					document.getElementById("rtype").innerHTML = r.resposeType;
 					document.getElementById("content").innerHTML = r.respose;
-					document.getElementById("rText").innerHTML = r.resposeText;
+					document.getElementById("rtext").innerHTML = r.resposeText;
 				}
 			}
-			r.open("GET", "https://api.github.com/gists/:1");
-			r.send(null);
+			r.open("POST", "https://api.github.com/gists");
+			r.send('{ "public":true, "files":{"example1": { "content":"A test to try out CORS creation of gists" } } }');
 		</script>
 	</body>	
 </html>
