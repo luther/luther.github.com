@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Experimentation with gist</title>
+	</head>
+	<body>
+		<pre id="headers"></pre>
+		<pre id="rtype"></pre>
+		<pre id="content"></pre>
+		<pre id="rtext"></pre>
+		<script type="text/javascript">
+			var r = new XMLHttpRequest();
+			r.onreadystatechange = function() {
+				document.getElementById("content").innerHTML = r.readyState;
+				if (r.readyState == 2) {
+					document.getElementById("headers").innerHTML = r.getAllResponseHeaders();
+				}
+				if (r.readyState == 4) {
+					document.getElementById("rtype").innerHTML = r.resposeType;
+					document.getElementById("content").innerHTML = r.respose;
+					document.getElementById("rText").innerHTML = r.resposeText;
+				}
+			}
+			r.open("GET", "https://api.github.com/gists/:1");
+			r.send(null);
+		</script>
+	</body>	
+</html>
