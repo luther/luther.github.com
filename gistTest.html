@@ -16,9 +16,9 @@
 					document.getElementById("headers").innerHTML = r.getAllResponseHeaders();
 				}
 				if (r.readyState == 4) {
-					document.getElementById("rtype").innerHTML = r.resposeType;
-					document.getElementById("content").innerHTML = r.respose;
-					document.getElementById("rtext").innerHTML = r.resposeText;
+					document.getElementById("rtype").innerHTML = r.responseType;
+					document.getElementById("content").innerHTML = r.response;
+					document.getElementById("rtext").innerHTML = r.responseText;
 				}
 			}
 			r.open("POST", "https://api.github.com/gists");
