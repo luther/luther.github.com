@@ -37,14 +37,16 @@
 			
 			// edit
 			/* // fails for unknown reasons (returns "not found")
+			// postulate: you can only edit if you are logged into the same account as the creator
 			r.open("POST", "https://api.github.com/gists/5021037");
 			r.send('{ "files":{"example1": { "content":"changed content" }, "example2":{ "content":"new content" } } }');
 			*/
 			
 			// comment
+			/* // comments only work for authenticated users; others get 404
 			r.open("POST", "https://api.github.com/gists/5021037/comments");
 			r.send('{ "body": "Meanderings in the daily peripatetic" }');
-			
+			*/
 			
 		</script>
 	</body>	
