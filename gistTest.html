@@ -21,20 +21,24 @@
 					document.getElementById("rtext").innerHTML = r.responseText;
 				}
 			}
-			/*
+			// create
+			/* // created 5021037
 			r.open("POST", "https://api.github.com/gists");
 			r.send('{ "public":true, "files":{"example1": { "content":"A test to try out CORS creation of gists" } } }');
 			*/
 
-			// created 5021037
 
+			// retrieve
+			/* // worked just fine
 			r.open("GET", "https://api.github.com/gists/5021037");
 			r.send(null);
-			/*
-			// edit
-			r.open("POST", "https://api.github.com/gists/5021037");
-			r.send('{ "files":{"example1": { "content":"changed content" }, "example1":{ "content":"new content" } } }');
 			*/
+
+			
+			// edit
+			r.open("PATCH", "https://api.github.com/gists/5021037");
+			r.send('{ "files":{"example1": { "content":"changed content" }, "example2":{ "content":"new content" } } }');
+			
 			
 		</script>
 	</body>	
