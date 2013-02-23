@@ -21,8 +21,88 @@
 					document.getElementById("rtext").innerHTML = r.responseText;
 				}
 			}
+			/*
 			r.open("POST", "https://api.github.com/gists");
 			r.send('{ "public":true, "files":{"example1": { "content":"A test to try out CORS creation of gists" } } }');
+			*/
+
+			// created 5021037
+
+			// edit
+			r.open("POST", "https://api.github.com/gists/:5021037");
+			r.send('{ "files":{"example1": { "content":"changed content" }, "example1":{ "content":"new content" } } }');
+
 		</script>
 	</body>	
 </html>
+
+<!-- create returned: 
+X-RateLimit-Remaining: 52
+Content-Type: application/json; charset=utf-8
+Cache-Control: max-age=0, private, must-revalidate
+X-RateLimit-Limit: 60
+{
+  "url": "https://api.github.com/gists/5021037",
+  "forks_url": "https://api.github.com/gists/5021037/forks",
+  "commits_url": "https://api.github.com/gists/5021037/commits",
+  "id": "5021037",
+  "git_pull_url": "https://gist.github.com/5021037.git",
+  "git_push_url": "https://gist.github.com/5021037.git",
+  "html_url": "https://gist.github.com/5021037",
+  "files": {
+    "example1": {
+      "filename": "example1",
+      "type": "text/plain",
+      "language": null,
+      "raw_url": "https://gist.github.com/raw/5021037/e22ccb33d2b153057c34bd612dba5218026064a5/example1",
+      "size": 40,
+      "content": "A test to try out CORS creation of gists"
+    }
+  },
+  "public": true,
+  "created_at": "2013-02-23T19:42:00Z",
+  "updated_at": "2013-02-23T19:42:00Z",
+  "description": null,
+  "comments": 0,
+  "user": null,
+  "comments_url": "https://api.github.com/gists/5021037/comments",
+  "forks": [
+
+  ],
+  "history": [
+
+  ]
+}
+{
+  "url": "https://api.github.com/gists/5021037",
+  "forks_url": "https://api.github.com/gists/5021037/forks",
+  "commits_url": "https://api.github.com/gists/5021037/commits",
+  "id": "5021037",
+  "git_pull_url": "https://gist.github.com/5021037.git",
+  "git_push_url": "https://gist.github.com/5021037.git",
+  "html_url": "https://gist.github.com/5021037",
+  "files": {
+    "example1": {
+      "filename": "example1",
+      "type": "text/plain",
+      "language": null,
+      "raw_url": "https://gist.github.com/raw/5021037/e22ccb33d2b153057c34bd612dba5218026064a5/example1",
+      "size": 40,
+      "content": "A test to try out CORS creation of gists"
+    }
+  },
+  "public": true,
+  "created_at": "2013-02-23T19:42:00Z",
+  "updated_at": "2013-02-23T19:42:00Z",
+  "description": null,
+  "comments": 0,
+  "user": null,
+  "comments_url": "https://api.github.com/gists/5021037/comments",
+  "forks": [
+
+  ],
+  "history": [
+
+  ]
+}
+-->
