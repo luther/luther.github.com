@@ -36,8 +36,14 @@
 
 			
 			// edit
-			r.open("PATCH", "https://api.github.com/gists/5021037");
+			/* // fails for unknown reasons (returns "not found")
+			r.open("POST", "https://api.github.com/gists/5021037");
 			r.send('{ "files":{"example1": { "content":"changed content" }, "example2":{ "content":"new content" } } }');
+			*/
+			
+			// comment
+			r.open("POST", "https://api.github.com/gists/5021037/comments");
+			r.send('{ "body": "Meanderings in the daily peripatetic" }');
 			
 			
 		</script>
