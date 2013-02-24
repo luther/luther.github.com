@@ -48,9 +48,17 @@
 			r.send('{ "body": "Meanderings in the daily peripatetic" }');
 			*/
 			
+			/*
+			// comment that works. Markdown only shows up in gist.github.com/5021037 view, not in data. Sent \\n become received \n.
 			r.open("POST", "https://api.github.com/gists/5021037/comments");
 			r.setRequestHeader("Authorization","Basic bHV0aGVycy1jb21tZW50czpuaWVpd2Npcml0Z2lzcm53");
 			r.send('{ "body": "## I am curious about markdown\\n\\n1. does it translate at submit or display time?\\n2. if so, why?" }');
+			*/
+			
+			// one time my commenting produced 780518. This is an effort to delete it.
+			r.open("DELETE", "https://api.github.com/gists/5021037/comments/780518");
+			r.setRequestHeader("Authorization","Basic bHV0aGVycy1jb21tZW50czpuaWVpd2Npcml0Z2lzcm53");
+			r.send(null);
 			
 			
 		</script>
