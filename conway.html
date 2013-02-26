@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Conway's Game of Life</title>
+		<script type="text/javascript" src="conway.js"></script>
+		<style>
+			table { border:1px solid red; }
+			td { width:4px; height:4px; border: 4px solid white; }
+			td.on { border-color:black; }
+			td.off { border-color:white; }
+			td.on2, td.on3, td.off3 { background-color:red; }
+		</style>
+	</head>
+	<body>
+	
+	<table cellpadding="0" cellspacing="0"><tbody id="lifegrid"><tbody></table>
+	
+	<script type="text/javascript">//<!--
+		var w = Math.floor(window.innerWidth / 13);
+		var h = Math.floor(window.innerHeight / 13);
+		g = new Grid(w,h);
+		function toggle(x,y) { 
+			g.toggle(x,y);
+			for (var c=x-1; c<=x+1; c+=1) {
+				for (var r=y-1; r<=y+1; r+=1) {
+					var td = document.getElementById("td-"+c+"-"+r);
+					if (td) {
+						var on = (g.get(c,r)?"on":"off");
+						td.setAttribute("class", on+g.getCount(c,r)+" "+on);
+					}
+				}
+			}
+		}
+		function repaint() {
+			for (var c=0; c<=w; c+=1) {
+				for (var r=0; r<=h; r+=1) {
+					var td = document.getElementById("td-"+c+"-"+r);
+					if (td) {
+						var on = (g.get(c,r)?"on":"off");
+						td.setAttribute("class", on+g.getCount(c,r)+" "+on);
+					}
+				}
+			}
+		}
+		var t = document.getElementById("lifegrid");
+		for(var r = 0; r<h; r+=1) {
+			var tr = document.createElement("tr");
+			for (var c = 0; c<w; c+=1) {
+				var td = document.createElement("td");
+				td.setAttribute("id","td-"+c+"-"+r);
+				td.setAttribute("onclick","toggle("+c+","+r+")");
+				tr.appendChild(td);
+			}
+			t.appendChild(tr);
+		}
+		document.body.setAttribute("onkeypress", "g.generation(); repaint();");
+	//--></script>
+	</body>
+</html>
